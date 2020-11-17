@@ -182,10 +182,11 @@ class Wheel(DessiaObject):
     _standalone_in_db = True
     _generic_eq = True
 
-    def __init__(self, rim: Rim, tyre:automotive.tyres.Tyre):
+    def __init__(self, rim: Rim, tyre:automotive.tyres.Tyre, name:str=''):
         DessiaObject.__init__(self,
                               rim=rim,
-                              tyre=tyre)
+                              tyre=tyre,
+                              name=name)
 
 
     def axial_plot(self, frame=vm.OXY, ax=None, measures=False):

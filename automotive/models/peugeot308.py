@@ -28,9 +28,8 @@ WHEEL_OFFSET = 0.045996
 rim = wheels.Rim(rim_diameter, rim_diameter+0.022, hub_diameter,
           WHEEL_OFFSET, rim_width, rim_width+0.010, 0.008, 0.003, 0.112, 0.012)
 tyre = tyres.Tyre(rim_diameter, tyre_diameter, rim_width, tyre_width, 0.010, loaded_diameter=tyre_loaded_diameter)
-wheel = wheels.Wheel(rim, tyre)
+wheel = wheels.Wheel(rim, tyre, name='308 Wheel')
 
-# wheel.babylonjs()
 
 front_seat_cushion_length = 66*0.00674
 front_seat_cushion_angle = math.radians(8.62)
@@ -94,37 +93,17 @@ back_seat = interior.Seat(back_seat_cushion_length,
                           rear_roof_height)
 
 
-population = interior.Population.random_population(2000)
-# population.plot()
-
-random_passenger1 = population.passengers[0]
-random_passenger2 = population.passengers[-1]
-seating_passenger1 = random_passenger1.cockpit_sit(cockpit)
-seating_passenger2 = random_passenger2.sit(front_seat)
-
-# seating_passenger1.plot()
 
 interior_308 = interior.CarInterior(cockpit, vm.Point3D(front_seat_x,
                                                         front_seat_y,
                                                         front_seat_z),
                                     back_seat,
                                     vm.Point2D(back_seat_x, back_seat_z),
-                                    passengers = [seating_passenger1,
-                                                  seating_passenger2])
+                                    )
 
-
-
-interior_308.plot()
 
 peugeot_308 = automotive.Car(front_wheel=wheel, rear_wheel=wheel,
                              wheelbase=wheelbase,
                              track=track, interior=interior_308,
                              outside_xz_contour = vm.wires.ClosedPolygon2D(outside_contour_points),
                              name='Peugeot 308')
-
-
-peugeot_308.babylonjs()
-
-analysis = population.mark_cockpit(cockpit)
-analysis.plot()
-

@@ -12,6 +12,7 @@ import automotive.interior as interior
 import automotive.wheels as wheels
 
 class Car(dc.DessiaObject):
+    _standalone_in_db = True
     def __init__(self,
                  front_wheel:wheels.Wheel,
                  rear_wheel:wheels.Wheel, wheelbase:float, track:float,

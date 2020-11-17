@@ -103,7 +103,7 @@ setup(
 	long_description=readme(),
 	author='DessiA Technologies',
 	author_email='root@dessia.tech',
-	install_requires=['dessia_common'],
+	install_requires=['dessia_common', 'volmdlr', 'numpy', 'pandas'],
 	python_requires='>=3.8',
 	packages=find_packages(),
 )
